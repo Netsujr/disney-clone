@@ -1,11 +1,11 @@
 
-// for short cut use rsf 
+// for short cut use rsf
 import React from 'react';
 
 function Header(props) {
   return (
     <div>
-
+Header
     </div>
   );
 }
