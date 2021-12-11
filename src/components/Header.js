@@ -32,6 +32,7 @@ function Header() {
           <span> Series </span>
         </a>
       </NavMenu>
+      <UserImg src="/images/RenP.png" />
     </Nav>
   );
 }
@@ -51,8 +52,13 @@ const Logo = styled.img`
 
   `
 
+// flex 1 makes the navbar the most important component and pushes everything aside
 const NavMenu = styled.div`
   display: flex;
+  flex: 1;
+  margin-left: 20px;
+  cursor: pointer;
+  align-items: center;
 
   a {
     display: flex;
@@ -68,4 +74,13 @@ const NavMenu = styled.div`
       letter-spacing: 1.42px;
     }
   }
+  `
+// the styled component is what you want the html to be, in this case, img tag
+
+const UserImg = styled.img`
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+
   `
