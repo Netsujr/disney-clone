@@ -3,9 +3,9 @@ import Header from './components/Header';
 import './App.css';
 import Home from './components/Home';
 import Detail from "./components/Detail";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // add Link
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-
+// must yarn + yarn add react-router-dom to start the server correctly...
 function App() {
   return (
     <div className="App">
