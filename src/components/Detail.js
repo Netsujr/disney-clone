@@ -5,12 +5,13 @@ const Detail = () => {
   return (
     <Container>
       <Background>
-        <img src="/images/login-background.jpg" />
+        <img src="/images/cars-poster.png" />
       </Background>
 
       <ImageTitle>
-        <img src="/images/viewers-pixar.png" />
+        <img src="/images/carro.png" />
       </ImageTitle>
+
     </Container>
   );
 };
@@ -42,10 +43,11 @@ const Background = styled.div`
   `
 
 const ImageTitle = styled.div`
-  height: 30vh;
-  min-height: 170px;
-  width: 35vw;
-  min-width: 200px;
+  height: 25vh;
+  min-height: 120px;
+  width: 30vw;
+  min-width: 150px;
+  margin-top: 20px;
 
   img {
     width: 100%;
