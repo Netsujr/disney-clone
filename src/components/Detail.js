@@ -11,7 +11,20 @@ const Detail = () => {
       <ImageTitle>
         <img src="/images/carro.png" />
       </ImageTitle>
+      <Controls>
+        <PlayButton>
 
+        </PlayButton>
+        <TrailerButton>
+
+        </TrailerButton>
+        <AddButton>
+
+        </AddButton>
+        <GroupWatchButton>
+
+        </GroupWatchButton>
+      </Controls>
     </Container>
   );
 };
@@ -54,5 +67,26 @@ const ImageTitle = styled.div`
     height: 100%;
     object-fit: contain;
   }
+
+  `
+
+const Controls = styled.div`
+
+
+  `
+
+  const PlayButton = styled.div`
+
+  `
+
+  const TrailerButton = styled.div`
+
+  `
+
+  const AddButton = styled.div`
+
+  `
+
+  const GroupWatchButton = styled.div`
 
   `
