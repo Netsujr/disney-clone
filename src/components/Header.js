@@ -1,4 +1,4 @@
-// for short cut use rsf
+// for short cut use rsf (with props)
 import React from 'react';
 import styled from 'styled-components';
 
