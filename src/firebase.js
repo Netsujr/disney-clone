@@ -2,6 +2,10 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
+import 'firebase/compat/storage';
+
+// {/* <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-storage.js"></script> */}
+// const storage = //require('@google-cloud/storage')
 
 const firebaseConfig = {
   apiKey: "AIzaSyA9BnlX96fMf7XiUVCFRsoQzG8DGERJkeY",
