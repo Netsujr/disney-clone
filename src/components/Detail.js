@@ -5,26 +5,26 @@ const Detail = () => {
   return (
     <Container>
       <Background>
-        <img src="/images/cars-poster.png" />
+        <img src="/images/cars-poster.png" alt=""/>
       </Background>
 
       <ImageTitle>
-        <img src="/images/carro.png" />
+        <img src="/images/carro.png" alt=""/>
       </ImageTitle>
       <Controls>
         <PlayButton>
-          <img src="/images/play-icon-black.png" />
+          <img src="/images/play-icon-black.png" alt=""/>
           <span>PLAY</span>
         </PlayButton>
         <TrailerButton>
-          <img src="/images/play-icon-white.png" />
+          <img src="/images/play-icon-white.png" alt=""/>
           <span>Trailer</span>
         </TrailerButton>
         <AddButton>
           <span>+</span>
         </AddButton>
         <GroupWatchButton>
-          <img src="/images/group-icon.png" />
+          <img src="/images/group-icon.png" alt=""/>
           <span></span>
         </GroupWatchButton>
       </Controls>

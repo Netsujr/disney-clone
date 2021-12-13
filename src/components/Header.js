@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 // for short cut use rsf (with props)
 import React from 'react';
 import styled from 'styled-components';
@@ -5,30 +6,30 @@ import styled from 'styled-components';
 function Header() {
   return (
     <Nav>
-      <Logo src="/images/logo.svg" />
+      <Logo src="/images/logo.svg" alt="" />
       <NavMenu>
-        <a>
-          <img src="/images/home-icon.svg" />
+        <a href="#">
+          <img src="/images/home-icon.svg" alt="" />
           <span> Home </span>
         </a>
-        <a>
-          <img src="/images/search-icon.svg" />
+        <a href="#">
+          <img src="/images/search-icon.svg" alt="" />
           <span> Search </span>
         </a>
-        <a>
-          <img src="/images/watchlist-icon.svg" />
+        <a href="#">
+          <img src="/images/watchlist-icon.svg" alt="" />
           <span> Watchlist </span>
         </a>
-        <a>
-          <img src="/images/original-icon.svg" />
+        <a href="#">
+          <img src="/images/original-icon.svg" alt="" />
           <span> Originals </span>
         </a>
-        <a>
-          <img src="/images/movie-icon.svg" />
+        <a href="#">
+          <img src="/images/movie-icon.svg" alt="" />
           <span> Movies </span>
         </a>
-        <a>
-          <img src="/images/series-icon.svg" />
+        <a href="#">
+          <img src="/images/series-icon.svg" alt="" />
           <span> Series </span>
         </a>
       </NavMenu>

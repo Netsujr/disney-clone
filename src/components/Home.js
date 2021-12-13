@@ -8,8 +8,8 @@ import { useDispatch } from "react-redux"
 import { setMovies } from "../features/movie/movieSlice"
 
 function Home() {
+  
   const dispatch = useDispatch();
-
 
   useEffect(() => {
     db.collection("movies").onSnapshot((snapshot) => {
