@@ -13,10 +13,12 @@ const Detail = () => {
       </ImageTitle>
       <Controls>
         <PlayButton>
-
+          <img src="/images/play-icon-black.png" />
+          <span>PLAY</span>
         </PlayButton>
         <TrailerButton>
-
+          <img src="/images/play-icon-white.png" />
+          <span>Trailer</span>
         </TrailerButton>
         <AddButton>
 
@@ -71,22 +73,41 @@ const ImageTitle = styled.div`
   `
 
 const Controls = styled.div`
-
-
-  `
-
-  const PlayButton = styled.div`
+  display: flex;
 
   `
 
-  const TrailerButton = styled.div`
+const PlayButton = styled.button`
+  border-radius: 4px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  height: 56px;
+  border: none;
+  padding: 0px 24px;
+  margin-right: 22px;
+  letter-spacing: 1.8px;
+  cursor: pointer;
+  background: rgb(249, 249, 249);
+
+  &:hover {
+    background: rgb(198, 198, 198);
+  }
 
   `
 
-  const AddButton = styled.div`
+const TrailerButton = styled(PlayButton)`
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgb(249, 249, 249);
+  color: rgb(249, 249, 249);
+  text-transform: uppercase;
+  
+  `
+
+const AddButton = styled.button`
 
   `
 
-  const GroupWatchButton = styled.div`
+const GroupWatchButton = styled.button`
 
   `
