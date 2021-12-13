@@ -19,6 +19,18 @@ const Movies = () => {
             </Wrap>
           ))
         }
+        <Wrap>
+          <img src='images/movies/barve.png' alt="" />
+        </Wrap>
+        <Wrap>
+          <img src='images/movies/blife.jpeg' alt="" />
+        </Wrap>
+        <Wrap>
+          <img src='images/movies/up2.jpeg' alt="" />
+        </Wrap>
+        <Wrap>
+          <img src='images/movies/wall-e.jpeg' alt="" />
+        </Wrap>
       </Content>
     </Container>
   );
@@ -45,7 +57,7 @@ const Wrap = styled.div`
     cursor: pointer;
     transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
     margin-bottom: 40px;
-    max-height: 40vh;
+    max-height: 60vh;
     max-width: 25vw;
 
 
