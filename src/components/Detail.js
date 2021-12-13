@@ -4,50 +4,53 @@ import styled from "styled-components";
 const Detail = () => {
   return (
     <Container>
-    <Background>
-    <img src="/images/cars-poster.png" />
-    </Background>
+      <Background>
+        <img src="/images/cars-poster.png" />
+      </Background>
 
-    <ImageTitle>
-    <img src="/images/carro.png" />
-    </ImageTitle>
-    <Controls>
-    <PlayButton>
-    <img src="/images/play-icon-black.png" />
-    <span>PLAY</span>
-    </PlayButton>
-    <TrailerButton>
-    <img src="/images/play-icon-white.png" />
-    <span>Trailer</span>
-    </TrailerButton>
-    <AddButton>
-    <span>+</span>
-    </AddButton>
-    <GroupWatchButton>
-    <img src="/images/group-icon.png" />
-    <span></span>
-    </GroupWatchButton>
-    </Controls>
-    <SubTitle>
-    2018 • 7m • Family, Fantasy, Kids, Animation
-    </SubTitle>
-    <Description>
-    Lightning McQueen is a cocky, rookie race car. Speeding on his way to a big race, he crashes into Radiator Springs, causing alot of destruction. McQueen must learn to respect and bond with the Radiator Springs inhabitants in order to get out of the town and back on the racetracks.
-    </Description>
+      <ImageTitle>
+        <img src="/images/carro.png" />
+      </ImageTitle>
+      <Controls>
+        <PlayButton>
+          <img src="/images/play-icon-black.png" />
+          <span>PLAY</span>
+        </PlayButton>
+        <TrailerButton>
+          <img src="/images/play-icon-white.png" />
+          <span>Trailer</span>
+        </TrailerButton>
+        <AddButton>
+          <span>+</span>
+        </AddButton>
+        <GroupWatchButton>
+          <img src="/images/group-icon.png" />
+          <span></span>
+        </GroupWatchButton>
+      </Controls>
+      <SubTitle>
+        2018 • 7m • Family, Fantasy, Kids, Animation
+      </SubTitle>
+      <Description>
+        Lightning McQueen is a cocky, rookie race car. Speeding on his way to a big race, he crashes into Radiator Springs, causing alot of destruction. McQueen must learn to respect and bond with the Radiator Springs inhabitants in order to get out of the town and back on the racetracks.
+      </Description>
+      <Description>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit magnam exercitationem odio ipsam molestias quo, aspernatur iusto tempore doloribus laboriosam dicta ducimus modi quasi numquam suscipit unde iure deserunt minus! Please ignore this, for testing purposes.
+      </Description>
     </Container>
-    );
-  };
+  );
+};
 
-  export default Detail;
+export default Detail;
 
-  const Container = styled.div`
+const Container = styled.div`
   min-height: calc(100vh - 70px);
-  padding: 0 calc(3.5vw - 5px);
+  padding: calc(3.5vw - 5px);
   position: relative;
 
   `
 
-  const Background = styled.div`
+const Background = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -64,7 +67,7 @@ const Detail = () => {
 
   `
 
-  const ImageTitle = styled.div`
+const ImageTitle = styled.div`
   height: 25vh;
   min-height: 120px;
   width: 30vw;
@@ -79,12 +82,12 @@ const Detail = () => {
 
   `
 
-  const Controls = styled.div`
+const Controls = styled.div`
   display: flex;
   align-items: center;
   `
 
-  const PlayButton = styled.button`
+const PlayButton = styled.button`
   border-radius: 4px;
   font-size: 15px;
   display: flex;
@@ -103,7 +106,7 @@ const Detail = () => {
 
   `
 
-  const TrailerButton = styled(PlayButton)`
+const TrailerButton = styled(PlayButton)`
   background: rgba(0, 0, 0, 0.3);
   border: 1px solid rgb(249, 249, 249);
   color: rgb(249, 249, 249);
@@ -115,7 +118,7 @@ const Detail = () => {
 
   `
 
-  const AddButton = styled.button`
+const AddButton = styled.button`
   width: 44px;
   height: 44px;
   display: flex;
@@ -138,11 +141,11 @@ const Detail = () => {
   }
   `
 
-  const GroupWatchButton = styled(AddButton)`
+const GroupWatchButton = styled(AddButton)`
   background-color: rgba(0, 0, 0, 0.6);
   `
 
-  const SubTitle = styled.div`
+const SubTitle = styled.div`
   color: rgb(249, 249, 249);
   font-size: 15px;
   min-height: 20px;
@@ -153,7 +156,7 @@ const Detail = () => {
   width: fit-content;
   `
 
-  const Description = styled.div`
+const Description = styled.div`
   line-height: 1.4;
   font-size: 20px;
   margin-top: 16px;
