@@ -2,8 +2,21 @@
 // for short cut use rsf (with props)
 import React from 'react';
 import styled from 'styled-components';
+import { auth, provider } from "../firebase"
+import Login from './Login';
 
 function Header() {
+
+  const handleAuth = () => {
+    auth
+      .signInWithPopup(provider)
+      .then((result) => {
+        console.log(result);
+      }).catch((error) => {
+        alert(error.message)
+      })
+  }
+
   return (
     <Nav>
       <Logo src="/images/logo.svg" alt="" />
@@ -34,6 +47,7 @@ function Header() {
         </a>
       </NavMenu>
       <UserImg src="/images/RenP.png" />
+      {/* <Login> </Login> */}
     </Nav>
   );
 }
