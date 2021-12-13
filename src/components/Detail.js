@@ -101,7 +101,11 @@ const TrailerButton = styled(PlayButton)`
   border: 1px solid rgb(249, 249, 249);
   color: rgb(249, 249, 249);
   text-transform: uppercase;
-  
+
+   &:hover {
+    background: rgb(128, 128, 128);
+  }
+
   `
 
 const AddButton = styled.button`
