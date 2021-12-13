@@ -98,7 +98,7 @@ const PlayButton = styled.button`
   background: rgb(249, 249, 249);
 
   &:hover {
-    background: rgb(198, 198, 198);
+    background: rgba(198, 198, 198, 0.9);
   }
 
   `

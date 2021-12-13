@@ -40,12 +40,13 @@ const Carousel = styled(Slider)`
   margin-top: 20px;
 
   ul li button {
+
     &:before {
       font-size: 10px;
       color: white;
-
     }
   }
+
 
   li.slick-sctive button:before {
     color: white;
@@ -57,6 +58,11 @@ const Carousel = styled(Slider)`
 
   button {
     z-index: 1;
+  }
+
+  .slick-dots li.slick-active button:before {
+    color: rgba(0, 233, 255, 0.6);
+    font-size: 13px;
   }
 
 

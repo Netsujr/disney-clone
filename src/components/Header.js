@@ -78,7 +78,7 @@ const NavMenu = styled.div`
 
       &:after {
         content: "";
-        height: 2px;
+        height: 1px;
         background: white;
         position: absolute;
         left: 0;
