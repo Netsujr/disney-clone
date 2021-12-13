@@ -46,8 +46,7 @@ function Header() {
           <span> Series </span>
         </a>
       </NavMenu>
-      <UserImg src="/images/RenP.png" />
-      {/* <Login> </Login> */}
+      <UserImg src="/images/RenP.png" onCLick={handleAuth} />
     </Nav>
   );
 }
