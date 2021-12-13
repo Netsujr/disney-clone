@@ -34,9 +34,6 @@ const Detail = () => {
       <Description>
         Lightning McQueen is a cocky, rookie race car. Speeding on his way to a big race, he crashes into Radiator Springs, causing alot of destruction. McQueen must learn to respect and bond with the Radiator Springs inhabitants in order to get out of the town and back on the racetracks.
       </Description>
-      <Description>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit magnam exercitationem odio ipsam molestias quo, aspernatur iusto tempore doloribus laboriosam dicta ducimus modi quasi numquam suscipit unde iure deserunt minus! Please ignore this, for testing purposes.
-      </Description>
     </Container>
   );
 };
@@ -57,7 +54,7 @@ const Background = styled.div`
   right: 0;
   bottom: 0;
   z-index: -1;
-  opacity: 0.8;
+  opacity: 0.3;
 
   img {
     width: 100%;
@@ -161,9 +158,9 @@ const Description = styled.div`
   font-size: 20px;
   margin-top: 16px;
   color: rgb(249, 249, 249);
-  background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 10px;
-  padding: 10px;
+  // background-color: rgba(0, 0, 0, 0.4);
+  // border-radius: 10px;
+  // padding: 10px;
   max-width: 700px;
   text-align: justify;
   `
