@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux'
 const Movies = () => {
   const movies = useSelector(selectMovies);
 
-  console.log("these are the movies", movies);
+  // console.log("these are the movies", movies);
 
   return (
     <Container>
@@ -17,23 +17,10 @@ const Movies = () => {
           movies.map((movie) => (
             <Wrap key={movie.id}>
               <Link to={`/detail/${movie.id}`}>
-                <img src={movie.cardImg} alt="" />
+                <img src={movie.cardImg} alt={movie.title} />
               </Link>
             </Wrap>
-          ))
-        }
-        <Wrap>
-          <img src='images/movies/barve.png' alt="" />
-        </Wrap>
-        <Wrap>
-          <img src='images/movies/blife.jpeg' alt="" />
-        </Wrap>
-        <Wrap>
-          <img src='images/movies/up2.jpeg' alt="" />
-        </Wrap>
-        <Wrap>
-          <img src='images/movies/wall-e.jpeg' alt="" />
-        </Wrap>
+          ))}
       </Content>
     </Container>
   );

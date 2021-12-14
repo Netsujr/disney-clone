@@ -5,8 +5,8 @@ import db from '../firebase';
 
 const Detail = () => {
   const { id } = useParams();
-  const [ movie, setMovie ] = useState();
-
+  const [movie, setMovie] = useState({});
+// useState HAS TO Start empty!!
   useEffect(() => {
     db.collection("movies")
       .doc(id)
@@ -15,19 +15,19 @@ const Detail = () => {
         if (doc.exists) {
           setMovie(doc.data());
         } else {
-
+          // redirect to homepage
         }
       })
-  }, [])
+  }, [id])
 
   return (
     <Container>
       <Background>
-        <img src="/images/cars-poster.png" alt="" />
+        <img src={movie.backgroundImg} alt="" />
       </Background>
 
       <ImageTitle>
-        <img src="/images/carro.png" alt="" />
+        <img src={movie.titleImg} alt="" />
       </ImageTitle>
       <Controls>
         <PlayButton>
@@ -47,10 +47,10 @@ const Detail = () => {
         </GroupWatchButton>
       </Controls>
       <SubTitle>
-        2018 • 7m • Family, Fantasy, Kids, Animation
+        {movie.subTitle}
       </SubTitle>
       <Description>
-        Lightning McQueen is a cocky, rookie race car. Speeding on his way to a big race, he crashes into Radiator Springs, causing alot of destruction. McQueen must learn to respect and bond with the Radiator Springs inhabitants in order to get out of the town and back on the racetracks.
+        {movie.description}
       </Description>
     </Container>
   );
@@ -87,12 +87,12 @@ const ImageTitle = styled.div`
   min-height: 120px;
   width: 30vw;
   min-width: 150px;
-  margin: 10px 0;
+  margin: 5px 0px;
 
   img {
     width: 100%;
     height: 100%;
-    : contain;
+    object-fit: contain;
   }
 
   `

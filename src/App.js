@@ -4,7 +4,7 @@ import './App.css';
 import Home from './components/Home';
 import Login from './components/Login';
 import Detail from "./components/Detail";
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // must yarn + yarn add react-router-dom to start the server correctly...
 function App() {
