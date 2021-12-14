@@ -1,52 +1,98 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 // for short cut use rsf (with props)
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { auth, provider } from "../firebase"
-import Login from './Login';
+import { auth, provider } from "../firebase";
+import { useNavigate } from "react-router-dom"
+import {
+  selectUserName,
+  selectUserPhoto,
+  setUserLogin,
+  setSignOut,
+} from "../features/user/userSlice";
+import { useSelector, useDispatch } from "react-redux"
 
 function Header() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const userName = useSelector(selectUserName);
+  const userPhoto = useSelector(selectUserPhoto);
 
-  const handleAuth = () => {
+  const signIn = () => {
     auth
-      .signInWithPopup(provider)
-      .then((result) => {
-        console.log(result);
+    .signInWithPopup(provider)
+    .then((result) => {
+        let user = result.user
+        dispatch(setUserLogin({
+          name: user.displayName,
+          email: user.email,
+          photo: user.photoURL
+        }))
+        navigate("/")
       }).catch((error) => {
         alert(error.message)
+      })
+    }
+
+    useEffect(() => {
+      auth.onAuthStateChanged(async (user) => {
+        if (user) {
+          dispatch(setUserLogin({
+            name: user.displayName,
+            email: user.email,
+            photo: user.photoURL
+          }))
+          navigate("/")
+        }
+      })
+    }, [])
+
+  const signOut = () => {
+    auth.signOut()
+      .then(() => {
+        dispatch(setSignOut());
+        navigate("/login")
       })
   }
 
   return (
     <Nav>
       <Logo src="/images/logo.svg" alt="" />
-      <NavMenu>
-        <a>
-          <img src="/images/home-icon.svg" alt="" />
-          <span> Home </span>
-        </a>
-        <a>
-          <img src="/images/search-icon.svg" alt="" />
-          <span> Search </span>
-        </a>
-        <a>
-          <img src="/images/watchlist-icon.svg" alt="" />
-          <span> Watchlist </span>
-        </a>
-        <a>
-          <img src="/images/original-icon.svg" alt="" />
-          <span> Originals </span>
-        </a>
-        <a>
-          <img src="/images/movie-icon.svg" alt="" />
-          <span> Movies </span>
-        </a>
-        <a>
-          <img src="/images/series-icon.svg" alt="" />
-          <span> Series </span>
-        </a>
-      </NavMenu>
-      <UserImg src="/images/RenP.png" onClick={handleAuth} />
+      {!userName ? (
+        <LoginContainer>
+          <Login onClick={signIn} >Login</Login>
+        </LoginContainer>
+      ) :
+        <>
+          <NavMenu>
+            <a>
+              <img src="/images/home-icon.svg" alt="" />
+              <span> Home </span>
+            </a>
+            <a>
+              <img src="/images/search-icon.svg" alt="" />
+              <span> Search </span>
+            </a>
+            <a>
+              <img src="/images/watchlist-icon.svg" alt="" />
+              <span> Watchlist </span>
+            </a>
+            <a>
+              <img src="/images/original-icon.svg" alt="" />
+              <span> Originals </span>
+            </a>
+            <a>
+              <img src="/images/movie-icon.svg" alt="" />
+              <span> Movies </span>
+            </a>
+            <a>
+              <img src="/images/series-icon.svg" alt="" />
+              <span> Series </span>
+            </a>
+          </NavMenu>
+          <UserImg src="/images/RenP.png" onClick={signOut} />
+        </>
+      }
     </Nav>
   );
 }
@@ -121,4 +167,29 @@ const UserImg = styled.img`
   border-radius: 50%;
   cursor: pointer;
 
+  `
+const Login = styled.div`
+  border: 1px solid #f9f9f9;
+  padding: 8px 16px;
+  border-radius: 4px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background-color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  transition: all 250ms ease 0s;
+
+  &:hover {
+    background-color: #f9f9f9;
+    color: #000;
+    border-color: transparent;
+
+  }
+
+  `
+
+const LoginContainer = styled.div`
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  align-items: center;
   `

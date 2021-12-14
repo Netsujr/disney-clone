@@ -6,66 +6,66 @@ import db from '../firebase';
 const Detail = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState({});
-// useState HAS TO Start empty!!
+  // useState HAS TO Start empty!!
   useEffect(() => {
     db.collection("movies")
-      .doc(id)
-      .get()
-      .then((doc) => {
-        if (doc.exists) {
-          setMovie(doc.data());
-        } else {
-          // redirect to homepage
-        }
-      })
+    .doc(id)
+    .get()
+    .then((doc) => {
+      if (doc.exists) {
+        setMovie(doc.data());
+      } else {
+        // redirect to homepage
+      }
+    })
   }, [id])
-
+  // ERROR: container was rendering before database was being accessed/\
   return (
     <Container>
-      <Background>
-        <img src={movie.backgroundImg} alt="" />
-      </Background>
+    <Background>
+    <img src={movie.backgroundImg} alt="" />
+    </Background>
 
-      <ImageTitle>
-        <img src={movie.titleImg} alt="" />
-      </ImageTitle>
-      <Controls>
-        <PlayButton>
-          <img src="/images/play-icon-black.png" alt="" />
-          <span>PLAY</span>
-        </PlayButton>
-        <TrailerButton>
-          <img src="/images/play-icon-white.png" alt="" />
-          <span>Trailer</span>
-        </TrailerButton>
-        <AddButton>
-          <span>+</span>
-        </AddButton>
-        <GroupWatchButton>
-          <img src="/images/group-icon.png" alt="" />
-          <span></span>
-        </GroupWatchButton>
-      </Controls>
-      <SubTitle>
-        {movie.subTitle}
-      </SubTitle>
-      <Description>
-        {movie.description}
-      </Description>
+    <ImageTitle>
+    <img src={movie.titleImg} alt="" />
+    </ImageTitle>
+    <Controls>
+    <PlayButton>
+    <img src="/images/play-icon-black.png" alt="" />
+    <span>PLAY</span>
+    </PlayButton>
+    <TrailerButton>
+    <img src="/images/play-icon-white.png" alt="" />
+    <span>Trailer</span>
+    </TrailerButton>
+    <AddButton>
+    <span>+</span>
+    </AddButton>
+    <GroupWatchButton>
+    <img src="/images/group-icon.png" alt="" />
+    <span></span>
+    </GroupWatchButton>
+    </Controls>
+    <SubTitle>
+    {movie.subTitle}
+    </SubTitle>
+    <Description>
+    {movie.description}
+    </Description>
     </Container>
-  );
-};
+    );
+  };
 
-export default Detail;
+  export default Detail;
 
-const Container = styled.div`
+  const Container = styled.div`
   min-height: calc(100vh - 70px);
   padding: calc(3.5vw - 5px);
   position: relative;
 
   `
 
-const Background = styled.div`
+  const Background = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -82,7 +82,7 @@ const Background = styled.div`
 
   `
 
-const ImageTitle = styled.div`
+  const ImageTitle = styled.div`
   height: 25vh;
   min-height: 120px;
   width: 30vw;
@@ -97,12 +97,12 @@ const ImageTitle = styled.div`
 
   `
 
-const Controls = styled.div`
+  const Controls = styled.div`
   display: flex;
   align-items: center;
   `
 
-const PlayButton = styled.button`
+  const PlayButton = styled.button`
   border-radius: 4px;
   font-size: 15px;
   display: flex;
@@ -118,10 +118,9 @@ const PlayButton = styled.button`
   &:hover {
     background: rgba(198, 198, 198, 0.9);
   }
-
   `
 
-const TrailerButton = styled(PlayButton)`
+  const TrailerButton = styled(PlayButton)`
   background: rgba(0, 0, 0, 0.3);
   border: 1px solid rgb(249, 249, 249);
   color: rgb(249, 249, 249);
@@ -130,10 +129,9 @@ const TrailerButton = styled(PlayButton)`
   &:hover {
     background: rgba(128, 128, 128, 0.3);
   }
-
   `
 
-const AddButton = styled.button`
+  const AddButton = styled.button`
   width: 44px;
   height: 44px;
   display: flex;
@@ -156,11 +154,11 @@ const AddButton = styled.button`
   }
   `
 
-const GroupWatchButton = styled(AddButton)`
+  const GroupWatchButton = styled(AddButton)`
   background-color: rgba(0, 0, 0, 0.6);
   `
 
-const SubTitle = styled.div`
+  const SubTitle = styled.div`
   color: rgb(249, 249, 249);
   font-size: 15px;
   min-height: 20px;
@@ -171,7 +169,7 @@ const SubTitle = styled.div`
   width: fit-content;
   `
 
-const Description = styled.div`
+  const Description = styled.div`
   line-height: 1.4;
   font-size: 20px;
   margin-top: 16px;

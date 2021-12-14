@@ -36,7 +36,6 @@ const Content = styled.div`
     display: grid;
     grid-gap: 25px;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-
     `
 
 const Wrap = styled.div`
@@ -62,5 +61,4 @@ const Wrap = styled.div`
       border-color: rgba(249, 249, 249, 1);
       box-shadow: rgb(0 0 0 / 80%) 0px 40px 58px -16px, rgb(0 0 0 / 72%) 0px 30px 22px -10px;
     }
-
     `
