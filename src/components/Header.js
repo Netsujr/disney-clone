@@ -7,30 +7,37 @@ import { auth, provider } from "../firebase";
 import {
   selectUserName,
   selectUserPhoto,
+  setUserLogin,
 } from "../features/user/userSlice";
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 
 function Header() {
-
+  const dispatch = useDispatch();
   const userName = useSelector(selectUserName);
   const userPhoto = useSelector(selectUserPhoto);
 
-  // const handleAuth = () => {
-  //   auth
-  //   .signInWithPopup(provider)
-  //   .then((result) => {
-  //     console.log(result);
-  //   }).catch((error) => {
-  //     alert(error.message)
-  //   })
-  // }
+
+  const signIn = () => {
+    auth
+      .signInWithPopup(provider)
+      .then((result) => {
+        let user = result.user
+        dispatch(setUserLogin({
+          name: user.displayName,
+          email: user.email,
+          photo: user.photoURL
+        }))
+      }).catch((error) => {
+        alert(error.message)
+      })
+  }
 
   return (
     <Nav>
       <Logo src="/images/logo.svg" alt="" />
       {!userName ? (
         <LoginContainer>
-          <Login>Login</Login>
+          <Login onClick={signIn} >Login</Login>
         </LoginContainer>
       ) :
         <>
@@ -61,7 +68,6 @@ function Header() {
             </a>
           </NavMenu>
           <UserImg src="/images/RenP.png" />
-          {/* onClick={handleAuth} */}
         </>
       }
     </Nav>
