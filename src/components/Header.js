@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 // for short cut use rsf (with props)
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { auth, provider } from "../firebase";
 import { useNavigate } from "react-router-dom"
@@ -18,11 +18,10 @@ function Header() {
   const userName = useSelector(selectUserName);
   const userPhoto = useSelector(selectUserPhoto);
 
-
   const signIn = () => {
     auth
-      .signInWithPopup(provider)
-      .then((result) => {
+    .signInWithPopup(provider)
+    .then((result) => {
         let user = result.user
         dispatch(setUserLogin({
           name: user.displayName,
@@ -33,7 +32,20 @@ function Header() {
       }).catch((error) => {
         alert(error.message)
       })
-  }
+    }
+
+    useEffect(() => {
+      auth.onAuthStateChanged(async (user) => {
+        if (user) {
+          dispatch(setUserLogin({
+            name: user.displayName,
+            email: user.email,
+            photo: user.photoURL
+          }))
+          navigate("/")
+        }
+      })
+    }, [])
 
   const signOut = () => {
     auth.signOut()
