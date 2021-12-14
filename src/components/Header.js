@@ -122,6 +122,7 @@ const NavMenu = styled.div`
   cursor: pointer;
   align-items: center;
 
+
   a {
     display: flex;
     align-items: center;
