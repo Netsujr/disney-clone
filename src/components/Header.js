@@ -3,16 +3,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import { auth, provider } from "../firebase";
-// import Login from './Login';
+import { useNavigate } from "react-router-dom"
 import {
   selectUserName,
   selectUserPhoto,
   setUserLogin,
+  setSignOut,
 } from "../features/user/userSlice";
 import { useSelector, useDispatch } from "react-redux"
 
 function Header() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const userName = useSelector(selectUserName);
   const userPhoto = useSelector(selectUserPhoto);
 
@@ -29,6 +31,14 @@ function Header() {
         }))
       }).catch((error) => {
         alert(error.message)
+      })
+  }
+
+  const signOut = () => {
+    auth.signOut()
+      .then(() => {
+        dispatch(setSignOut());
+        navigate("/login")
       })
   }
 
@@ -67,7 +77,7 @@ function Header() {
               <span> Series </span>
             </a>
           </NavMenu>
-          <UserImg src="/images/RenP.png" />
+          <UserImg src="/images/RenP.png" onClick={signOut} />
         </>
       }
     </Nav>
