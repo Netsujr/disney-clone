@@ -1,30 +1,48 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from "styled-components";
+import { useParams } from "react-router-dom"
+import db from '../firebase';
 
 const Detail = () => {
+  const { id } = useParams();
+  const [ movie, setMovie ] = useState();
+
+  useEffect(() => {
+    db.collection("movies")
+      .doc(id)
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          setMovie(doc.data());
+        } else {
+
+        }
+      })
+  }, [])
+
   return (
     <Container>
       <Background>
-        <img src="/images/cars-poster.png" alt=""/>
+        <img src="/images/cars-poster.png" alt="" />
       </Background>
 
       <ImageTitle>
-        <img src="/images/carro.png" alt=""/>
+        <img src="/images/carro.png" alt="" />
       </ImageTitle>
       <Controls>
         <PlayButton>
-          <img src="/images/play-icon-black.png" alt=""/>
+          <img src="/images/play-icon-black.png" alt="" />
           <span>PLAY</span>
         </PlayButton>
         <TrailerButton>
-          <img src="/images/play-icon-white.png" alt=""/>
+          <img src="/images/play-icon-white.png" alt="" />
           <span>Trailer</span>
         </TrailerButton>
         <AddButton>
           <span>+</span>
         </AddButton>
         <GroupWatchButton>
-          <img src="/images/group-icon.png" alt=""/>
+          <img src="/images/group-icon.png" alt="" />
           <span></span>
         </GroupWatchButton>
       </Controls>
