@@ -29,6 +29,7 @@ function Header() {
           email: user.email,
           photo: user.photoURL
         }))
+        navigate("/")
       }).catch((error) => {
         alert(error.message)
       })
