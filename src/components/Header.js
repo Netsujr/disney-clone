@@ -65,7 +65,7 @@ function Header() {
       ) :
         <>
           <NavMenu>
-            <a>
+            <a href="/">
               <img src="/images/home-icon.svg" alt="" />
               <span> Home </span>
             </a>
@@ -126,6 +126,8 @@ const NavMenu = styled.div`
     display: flex;
     align-items: center;
     padding: 0 12px;
+    text-decoration: none;
+    color: white;
 
     img{
       height: 20px;
