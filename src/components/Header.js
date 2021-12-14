@@ -2,58 +2,72 @@
 // for short cut use rsf (with props)
 import React from 'react';
 import styled from 'styled-components';
-import { auth, provider } from "../firebase"
-import Login from './Login';
+import { auth, provider } from "../firebase";
+// import Login from './Login';
+import {
+  selectUserName,
+  selectUserPhoto,
+} from "../features/user/userSlice";
+import { useSelector } from "react-redux"
 
 function Header() {
 
-  const handleAuth = () => {
-    auth
-      .signInWithPopup(provider)
-      .then((result) => {
-        console.log(result);
-      }).catch((error) => {
-        alert(error.message)
-      })
-  }
+  const userName = useSelector(selectUserName);
+  const userPhoto = useSelector(selectUserPhoto);
+
+  // const handleAuth = () => {
+  //   auth
+  //   .signInWithPopup(provider)
+  //   .then((result) => {
+  //     console.log(result);
+  //   }).catch((error) => {
+  //     alert(error.message)
+  //   })
+  // }
 
   return (
     <Nav>
-      <Logo src="/images/logo.svg" alt="" />
+    <Logo src="/images/logo.svg" alt="" />
+    {!userName ? (
+      <Login>Login</Login>) :
+      <>
       <NavMenu>
-        <a>
-          <img src="/images/home-icon.svg" alt="" />
-          <span> Home </span>
-        </a>
-        <a>
-          <img src="/images/search-icon.svg" alt="" />
-          <span> Search </span>
-        </a>
-        <a>
-          <img src="/images/watchlist-icon.svg" alt="" />
-          <span> Watchlist </span>
-        </a>
-        <a>
-          <img src="/images/original-icon.svg" alt="" />
-          <span> Originals </span>
-        </a>
-        <a>
-          <img src="/images/movie-icon.svg" alt="" />
-          <span> Movies </span>
-        </a>
-        <a>
-          <img src="/images/series-icon.svg" alt="" />
-          <span> Series </span>
-        </a>
+      <a>
+      <img src="/images/home-icon.svg" alt="" />
+      <span> Home </span>
+      </a>
+      <a>
+      <img src="/images/search-icon.svg" alt="" />
+      <span> Search </span>
+      </a>
+      <a>
+      <img src="/images/watchlist-icon.svg" alt="" />
+      <span> Watchlist </span>
+      </a>
+      <a>
+      <img src="/images/original-icon.svg" alt="" />
+      <span> Originals </span>
+      </a>
+      <a>
+      <img src="/images/movie-icon.svg" alt="" />
+      <span> Movies </span>
+      </a>
+      <a>
+      <img src="/images/series-icon.svg" alt="" />
+      <span> Series </span>
+      </a>
       </NavMenu>
-      <UserImg src="/images/RenP.png" onClick={handleAuth} />
+      <UserImg src="/images/RenP.png" />
+      {/* onClick={handleAuth} */}
+      </>
+    }
     </Nav>
-  );
-}
+    );
+  }
 
-export default Header;
+  export default Header;
 
-const Nav = styled.nav`
+  const Nav = styled.nav`
   height: 70px;
   background: #090b13;
   display: flex;
@@ -63,13 +77,13 @@ const Nav = styled.nav`
 
   `
 
-const Logo = styled.img`
+  const Logo = styled.img`
   width: 80px;
 
   `
 
-// flex 1 makes the navbar the most important component and pushes everything aside
-const NavMenu = styled.div`
+  // flex 1 makes the navbar the most important component and pushes everything aside
+  const NavMenu = styled.div`
   display: flex;
   flex: 1;
   margin-left: 20px;
@@ -113,12 +127,15 @@ const NavMenu = styled.div`
     }
   }
   `
-// the styled component is what you want the html to be, in this case, img tag
+  // the styled component is what you want the html to be, in this case, img tag
 
-const UserImg = styled.img`
+  const UserImg = styled.img`
   width: 48px;
   height: 48px;
   border-radius: 50%;
   cursor: pointer;
 
   `
+const Login = styled.div`
+
+`
